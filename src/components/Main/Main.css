@@ -176,6 +176,7 @@ ion-icon {
 }
 
 #waifu {
+  width: 90%;
   animation: breathe 4s infinite ease-in-out;
 }
 

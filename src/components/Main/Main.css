@@ -1,0 +1,268 @@
+.App {
+  text-align: center;
+  position: absolute;
+  color: black;
+  top: 0; left: 0; right: 0; bottom: 0;
+}
+
+a:link { 
+  text-decoration: none; 
+  color: black;
+} 
+a:visited { 
+  text-decoration: none; 
+  color: black;
+} 
+a:hover { 
+  text-decoration: none; 
+} 
+a:active { 
+  text-decoration: none; 
+}
+
+.topNav {
+  background-color: #FFE3E3;
+  overflow: hidden;
+}
+
+.topNav a {
+  float: left;
+  padding: 16px 14px;
+  size: 16px;
+}
+
+.topNav a.split {
+  float: right;
+  padding: 16px 14px;
+}
+
+ion-icon {
+  font-size: 32px;
+}
+
+.chat-input-holder {
+  padding: 18px;
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 25px;
+}
+
+.chat-input-textarea {
+  background-color: rgba(221, 221, 221, 0.795);
+  width: 50%;
+  color: black;
+  resize: none;
+  box-shadow: none;
+  border: none;
+  border-radius: 25px;
+  padding: 12px;
+}
+
+.chat-log {
+  padding: 24px;
+  text-align: left;
+  overflow-y: auto;
+}
+
+.message {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  flex-grow: 1;
+  font-family: 'depixel';
+  font-size: 20px;
+}
+
+.chatBox {
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  padding-bottom: 60px;
+  max-height: calc(100vh - 220px);
+  padding-left: 330px;
+  padding-right: 350px;
+}
+
+.chat-message-center {
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.chat-message-bot {
+  border-radius: 30px;
+  background-color: bisque;
+}
+
+.chat-message {
+  background-color: antiquewhite;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  background: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.message {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+}
+
+.message-bot {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  flex-grow: 1;
+  font-family: 'depixel';
+  font-size: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background-color: bisque;
+  color: black;
+  transform: translateX(-80%);
+  transition: transform 0.3s ease-out;
+  z-index: 1;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.close-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+  transition: transform 1s ease-out;
+}
+
+.close-icon ion-icon {
+  transform: rotate(0deg);
+}
+
+
+.startText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: larger;
+  font-family: 'depixel';
+  transition: opacity 0.5s ease-out;
+  color: white;
+}
+
+.imwaifu {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  overflow-x: hidden;
+}
+
+#waifu {
+  animation: breathe 4s infinite ease-in-out;
+}
+
+@keyframes breathe {
+
+  0% {
+
+    transform: scale(1);
+
+  }
+
+  50% {
+    transform: scaleX(1.02);
+  }
+
+  100% {
+
+    transform: scale(1);
+
+  }
+
+}
+
+#bg {
+  position: absolute;
+  object-fit: cover;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.loader-typing {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.loader-typing::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  animation: typing-dot 1s infinite;
+}
+
+.loader-typing::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  animation: typing-dot 1s infinite 0.2s;
+}
+
+.loader-typing::after::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  animation: typing-dot 1s infinite 0.4s;
+}
+
+@keyframes typing-dot {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

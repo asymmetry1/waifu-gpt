@@ -45,16 +45,38 @@ import {
     },
   ];
 
+  const responseCache = {};
+
   async function run(prompt) {
+
+    if (responseCache[prompt]) {
+      return responseCache[prompt];
+    }
+
+    const history = [];
+    
     const chatSession = model.startChat({
       generationConfig,
       safetySettings,
-      history: [
-      ],
+      history: history,
     });
   
     const result = await chatSession.sendMessage(prompt);
     const response = await result.response.text();
+
+    responseCache[prompt] = response;
+
+    history.push(
+      {
+        role: "user",
+        parts: [{ text: prompt }],
+      },
+      {
+        role: "model",
+        parts: [{ text: response }],
+      },
+    );
+
     return response;
   }
   

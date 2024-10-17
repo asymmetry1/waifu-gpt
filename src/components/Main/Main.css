@@ -5,18 +5,12 @@
   top: 0; left: 0; right: 0; bottom: 0;
 }
 
-a:link { 
+a {
   text-decoration: none; 
   color: black;
-} 
-a:visited { 
-  text-decoration: none; 
-  color: black;
-} 
-a:hover { 
-  text-decoration: none; 
-} 
-a:active { 
+}
+
+a:hover, a:active {
   text-decoration: none; 
 }
 
@@ -26,14 +20,12 @@ a:active {
 }
 
 .topNav a {
-  float: left;
   padding: 16px 14px;
-  size: 16px;
+  font-size: 16px;
 }
 
 .topNav a.split {
   float: right;
-  padding: 16px 14px;
 }
 
 ion-icon {
@@ -65,41 +57,40 @@ ion-icon {
   overflow-y: auto;
 }
 
-.message {
+.chat-message, .chat-message-bot {
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+.chat-message {
+  background-color: antiquewhite;
+}
+
+.chat-message-bot {
+  background-color: bisque;
+}
+
+.message, .message-bot {
   word-break: break-word;
   overflow-wrap: break-word;
   white-space: normal;
   flex-grow: 1;
   font-family: 'depixel';
   font-size: 20px;
+  padding: 10px 40px; /* Combined padding for both classes */
 }
 
 .chatBox {
   overflow-y: auto;
-  overflow-x: hidden;
   scroll-behavior: smooth;
-  padding-bottom: 60px;
+  padding: 0 350px 60px 330px; /* Combined padding for cleaner code */
   max-height: calc(100vh - 220px);
-  padding-left: 330px;
-  padding-right: 350px;
 }
 
 .chat-message-center {
   padding: 12px;
   display: flex;
-  flex-direction: row;
   align-items: flex-start;
-}
-
-.chat-message-bot {
-  border-radius: 30px;
-  background-color: bisque;
-}
-
-.chat-message {
-  background-color: antiquewhite;
-  border-radius: 30px;
-  margin-bottom: 20px;
 }
 
 .avatar {
@@ -108,23 +99,6 @@ ion-icon {
   width: 40px;
   height: 40px;
   flex-shrink: 0;
-}
-
-.message {
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 10px;
-}
-
-.message-bot {
-  word-break: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
-  flex-grow: 1;
-  font-family: 'depixel';
-  font-size: 20px;
-  padding-left: 40px;
-  padding-right: 40px;
 }
 
 .sidebar {
@@ -152,11 +126,6 @@ ion-icon {
   transition: transform 1s ease-out;
 }
 
-.close-icon ion-icon {
-  transform: rotate(0deg);
-}
-
-
 .startText {
   position: absolute;
   top: 50%;
@@ -181,23 +150,12 @@ ion-icon {
 }
 
 @keyframes breathe {
-
-  0% {
-
+  0%, 100% {
     transform: scale(1);
-
   }
-
   50% {
     transform: scaleX(1.02);
   }
-
-  100% {
-
-    transform: scale(1);
-
-  }
-
 }
 
 #bg {
@@ -212,58 +170,20 @@ ion-icon {
 
 .loader-typing {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 40px; /* Adjust width based on your chat bubble size */
+  height: 20px; /* Height can be adjusted as needed */
   position: relative;
 }
 
-.loader-typing::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 10px;
-  height: 10px;
-  background-color: #ccc;
-  border-radius: 50%;
-  animation: typing-dot 1s infinite;
+.loader-typing div {
+  display: inline-block;
+  width: 10px; /* Size of each dot */
+  height: 10px; /* Size of each dot */
+  margin: 0 5px; /* Space between dots */
+  background-color: #000000; /* Dot color */
+  border-radius: 50%; /* Make dots circular */
+  animation: typing-dot 1s infinite; /* Animation for dots */
 }
 
-.loader-typing::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 60%;
-  transform: translate(-50%, -50%);
-  width: 10px;
-  height: 10px;
-  background-color: #ccc;
-  border-radius: 50%;
-  animation: typing-dot 1s infinite 0.2s;
-}
-
-.loader-typing::after::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 70%;
-  transform: translate(-50%, -50%);
-  width: 10px;
-  height: 10px;
-  background-color: #ccc;
-  border-radius: 50%;
-  animation: typing-dot 1s infinite 0.4s;
-}
-
-@keyframes typing-dot {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+.loader-typing div:nth-child(1) { animation-delay: 0s; }
+.loader-typing div:nth-child(2) { animation-delay: 0s; }

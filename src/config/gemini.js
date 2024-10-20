@@ -46,14 +46,14 @@ import {
   ];
 
   const responseCache = {};
+  const maxHistorySize = 20;
+  let history = [];
 
   async function run(prompt) {
 
     if (responseCache[prompt]) {
       return responseCache[prompt];
     }
-
-    const history = [];
     
     const chatSession = model.startChat({
       generationConfig,
@@ -76,6 +76,10 @@ import {
         parts: [{ text: response }],
       },
     );
+
+    if (history.length > maxHistorySize) {
+      history = history.slice(-maxHistorySize);
+    }
 
     return response;
   }

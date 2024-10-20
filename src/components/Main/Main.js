@@ -55,9 +55,9 @@ function Main() {
               <ion-icon name="chevron-forward-outline"></ion-icon>
             )}
           </span>
-          <h2>Chat History</h2>
+          <h2 className='cHistory'>Chat History</h2>
         </div>
-        <ul>
+        <ul className={`cList ${isSidebarOpen ? 'open' : ''}`}>
           <li>Chat 1</li>
           <li>Chat 2</li>
           <li>Chat 3</li>
